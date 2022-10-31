@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  elk:
+    image: sebp/elk
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
+    volumes:
+      - ./elk/elasticsearch.yml:/etc/elasticsearch/elasticsearch.yml
+      - ./elk/logstash.yml:/etc/logstash/logstash.yml
+      - ./elk/kibana.yml:/etc/kibana/kibana.yml
+    links:
+      - redis
+  redis:
+    image: redis:5.0.5
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf

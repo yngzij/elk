@@ -1,0 +1,16 @@
+  input {
+    redis {
+    host => "redis"
+    port => 6379
+    key => "name"
+    data_type => "list"
+  }
+  }
+    output {
+    elasticsearch {
+    hosts => "elk:9200"
+    data_stream => "true"
+  }
+  }
+
+

@@ -1,0 +1,8 @@
+xpack.security.enabled: false
+xpack.security.enrollment.enabled: false
+xpack.security.http.ssl:
+  enabled: false
+xpack.security.transport.ssl:
+  enabled: false
+http.host: 0.0.0.0
+ingest.geoip.downloader.enabled: false

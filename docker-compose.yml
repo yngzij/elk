@@ -9,7 +9,7 @@ services:
       - "5044:5044"
     volumes:
       - ./elk/elasticsearch.yml:/etc/elasticsearch/elasticsearch.yml
-      - ./elk/logstash.yml:/etc/logstash/logstash.yml
+      - ./elk/logstash.yml:/etc/logstash/conf.d/30-output.conf
       - ./elk/kibana.yml:/etc/kibana/kibana.yml
     links:
       - redis
